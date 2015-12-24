@@ -7,7 +7,6 @@ import org.xutils.common.TaskController;
 import org.xutils.common.task.TaskControllerImpl;
 import org.xutils.db.DbManagerImpl;
 import org.xutils.http.HttpManagerImpl;
-import org.xutils.image.ImageManagerImpl;
 import org.xutils.view.ViewInjectorImpl;
 
 import java.lang.reflect.Method;
@@ -57,12 +56,6 @@ public final class x {
         return Ext.httpManager;
     }
 
-    public static ImageManager image() {
-        if (Ext.imageManager == null) {
-            ImageManagerImpl.registerInstance();
-        }
-        return Ext.imageManager;
-    }
 
     public static ViewInjector view() {
         if (Ext.viewInjector == null) {
@@ -80,7 +73,6 @@ public final class x {
         private static Application app;
         private static TaskController taskController;
         private static HttpManager httpManager;
-        private static ImageManager imageManager;
         private static ViewInjector viewInjector;
 
         private Ext() {
@@ -115,10 +107,6 @@ public final class x {
 
         public static void setHttpManager(HttpManager httpManager) {
             Ext.httpManager = httpManager;
-        }
-
-        public static void setImageManager(ImageManager imageManager) {
-            Ext.imageManager = imageManager;
         }
 
         public static void setViewInjector(ViewInjector viewInjector) {
